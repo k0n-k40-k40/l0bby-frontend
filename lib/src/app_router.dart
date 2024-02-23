@@ -1,23 +1,17 @@
 // app_router.dart
 import 'package:flutter/material.dart';
 import 'screens/auth.dart';
-import 'screens/auto_match.dart';
-import 'screens/home.dart';
-import 'screens/manual_match.dart';
 import 'screens/room_details.dart';
 import 'screens/user_profile.dart';
+import 'layouts/base_layout.dart';
 
 class AppRouter {
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
-        return MaterialPageRoute(builder: (_) => const HomeScreen());
+        return MaterialPageRoute(builder: (_) => const BaseLayout());
       case '/auth':
         return MaterialPageRoute(builder: (_) => const AuthScreen());
-      case '/automatic':
-        return MaterialPageRoute(builder: (_) => const AutoMatchScreen());
-      case '/manual':
-        return MaterialPageRoute(builder: (_) => const ManualMatchScreen());
       // Add more static routes here
     }
 

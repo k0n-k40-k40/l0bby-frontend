@@ -6,34 +6,55 @@ class AllModeButtons extends StatelessWidget {
     Key ? key,
   }) : super(key: key);
 
+  BoxDecoration myBoxDecoration() {
+    return const BoxDecoration(
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(40.0),
+        topRight: Radius.circular(40.0)
+      ),
+      color: Color.fromRGBO(255, 255, 255, 0.4),
+    );
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
+
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          TonalButton(
-            text: "Automatic!", 
-            backgroundColor: Colors.lightBlueAccent, 
-            onPressed: () {
-            
-            },
-          ),
-          TonalButton(
-            text: "Manual!", 
-            backgroundColor: Colors.lightBlueAccent, 
-            onPressed: () {
+      child: Container(
+        width: screenWidth,
+        height: screenHeight * 0.3,
+        decoration: myBoxDecoration(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TonalButton(
+              text: "Automatic!", 
+              backgroundColor: Colors.lightBlueAccent, 
+              onPressed: () {
+              
+              },
+            ),
+            TonalButton(
+              text: "Manual!", 
+              backgroundColor: const Color.fromRGBO(64, 196, 255, 1), 
+              onPressed: () {
 
-            },
-          ),
-          TonalButton(
-            text: "Creat Room!", 
-            backgroundColor: Colors.lightBlueAccent, 
-            onPressed: () {
+              },
+            ),
+            TonalButton(
+              text: "Creat Room!", 
+              backgroundColor: Colors.lightBlueAccent, 
+              onPressed: () {
 
-            },
-          )
-        ],
+              },
+            )
+          ],
+        ),
       ),
     );
   }

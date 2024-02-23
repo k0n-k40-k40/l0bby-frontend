@@ -23,9 +23,7 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   HelloBar(username: "duy"),
-                  SizedBox(height: 5,),
                   HomeImage(source: "lib/assets/running_tree.png"),
-                  SizedBox(height: 5,),
                 ],
               ),
             ),

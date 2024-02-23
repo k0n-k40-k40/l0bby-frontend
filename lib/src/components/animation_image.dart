@@ -25,7 +25,7 @@ class _HomeImageState extends State<HomeImage>
       duration: const Duration(milliseconds: 1500),
       vsync: this,
     )..repeat(reverse: true);
-    _animation = Tween(begin: -15.0, end: 15.0).animate(
+    _animation = Tween(begin: -10.0, end: 10.0).animate(
       CurvedAnimation(
         parent: _controller,
         curve: Curves.easeInOut,
@@ -37,7 +37,7 @@ class _HomeImageState extends State<HomeImage>
   Widget build(BuildContext context) {
     return 
       Transform.scale(
-        scale: 0.9,
+        scale: 1,
         child: Center(
         child: AnimatedBuilder(
           animation: _animation,

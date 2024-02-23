@@ -36,21 +36,29 @@ class AllModeButtons extends StatelessWidget {
               text: "Automatic!", 
               backgroundColor: Colors.lightBlueAccent, 
               onPressed: () {
-              
+                Navigator.pushNamed(context, '/automatic');
               },
             ),
             TonalButton(
               text: "Manual!", 
               backgroundColor: const Color.fromRGBO(64, 196, 255, 1), 
               onPressed: () {
+                Navigator.pushNamed(context, '/manual');
 
               },
             ),
             TonalButton(
-              text: "Creat Room!", 
+              text: "Create Room!", 
               backgroundColor: Colors.lightBlueAccent, 
               onPressed: () {
 
+              },
+            ),
+            TonalButton(
+              text: "Go to auth page!", 
+              backgroundColor: Colors.lightBlueAccent, 
+              onPressed: () {
+                Navigator.pushNamed(context, '/auth');
               },
             )
           ],

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'src/components/hello_bar.dart';
-import 'src/components/animation_image.dart';
-import 'src/components/all_buttons.dart';
+import '../components/hello_bar.dart';
+import '../components/animation_image.dart';
+import '../components/all_buttons.dart';
 // import 'package:l0bby_frontend/navigation_bar.dart';
 
-class HomeSreen extends StatelessWidget {
-  const HomeSreen({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

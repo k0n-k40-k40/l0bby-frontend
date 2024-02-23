@@ -1,3 +1,4 @@
+// In src/components/navigation_bar.dart
 import 'package:flutter/material.dart';
 
 class CustomNavigationBar extends StatelessWidget {

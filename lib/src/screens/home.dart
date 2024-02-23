@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import '../components/hello_bar.dart';
 import '../components/animation_image.dart';
 import '../components/all_buttons.dart';
@@ -18,10 +19,16 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            HelloBar(username: "duy"),
-            SizedBox(height: 5,),
-            HomeImage(source: "lib/assets/running_tree.png"),
-            SizedBox(height: 5,),
+            Expanded(
+              child: Column(
+                children: [
+                  HelloBar(username: "duy"),
+                  SizedBox(height: 5,),
+                  HomeImage(source: "lib/assets/running_tree.png"),
+                  SizedBox(height: 5,),
+                ],
+              ),
+            ),
             AllModeButtons()
           ]
         )

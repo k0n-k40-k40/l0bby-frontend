@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/navigation_bar.dart';
 
 class ManualMatchScreen extends StatelessWidget {
   const ManualMatchScreen({super.key});
@@ -7,6 +8,9 @@ class ManualMatchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Manual Matching')),
+      bottomNavigationBar: const CustomNavigationBar(
+        currentIndex: 2,
+      ),
       body: Center(
         child: ElevatedButton(
           onPressed: () {

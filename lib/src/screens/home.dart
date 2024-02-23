@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/navigation_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key}); // Constructor is marked as const
@@ -7,6 +8,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       // Using const if Scaffold's child is also a const
+      bottomNavigationBar: const CustomNavigationBar(
+        currentIndex: 0,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

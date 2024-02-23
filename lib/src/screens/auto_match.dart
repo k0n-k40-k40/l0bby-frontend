@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "../components/navigation_bar.dart";
 
 class AutoMatchScreen extends StatelessWidget {
   const AutoMatchScreen({super.key});
@@ -7,6 +8,9 @@ class AutoMatchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Automatic Matching')),
+      bottomNavigationBar: const CustomNavigationBar(
+        currentIndex: 1,
+      ),
       body: Center(
         child: ElevatedButton(
           onPressed: () {

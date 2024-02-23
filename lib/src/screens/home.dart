@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import '../components/navigation_bar.dart';
 import '../components/hello_bar.dart';
 import '../components/animation_image.dart';
 import '../components/all_buttons.dart';
@@ -12,6 +13,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: Color.fromARGB(255, 191, 214, 233),
+      bottomNavigationBar: CustomNavigationBar(
+        currentIndex: 0,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

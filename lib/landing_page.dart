@@ -15,8 +15,10 @@ class LandingPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             HelloBar(username: "duy"),
-            SizedBox(height: 20,),
+            SizedBox(height: 5,),
             HomeImage(source: "lib/assets/running_tree.png"),
+            SizedBox(height: 5,),
+            AllModeButtons()
           ]
         )
       ),
@@ -45,7 +47,9 @@ class HelloBar extends StatelessWidget {
         color: Colors.red,
         child: Text(
           "hello, $username!!\n Lets play some games!!",
-          style: TextStyle(fontSize: textSize, ),
+          style: TextStyle(
+            fontSize: textSize, 
+            fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
       ),
@@ -88,20 +92,25 @@ class _HomeImageState extends State<HomeImage>
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return 
+      Transform.scale(
+        scale: 0.9,
+        child: Center(
         child: AnimatedBuilder(
           animation: _animation,
           builder: (context, child) {
             return Transform.translate(
               offset: Offset(0.0, _animation.value),
-              child: Image.asset(
-                widget.source, // Replace with your image asset path
-                fit: BoxFit.cover,
-              ),
+                child: Image.asset(
+                  widget.source, // Replace with your image asset path
+                  fit: BoxFit.contain,
+                ),
             );
           },
         ),
+       ),
       );
+      
   }
 
   @override
@@ -111,15 +120,76 @@ class _HomeImageState extends State<HomeImage>
   }
 }
 
+class TonalButton extends StatelessWidget {
+  final String text;
+  final Color backgroundColor;
+  final VoidCallback onPressed;
 
-// class AllModeButtons extends StatelessWidget {
-//   const AllModeButtons({
-//     Key ? key,
-//   }) : super(key: key);
+  const TonalButton({
+    Key? key,
+    required this.text,
+    required this.backgroundColor,
+    required this.onPressed,
+  }) : super(key: key);
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column()
-//   }
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: const ConstrainedBox(
+        constraints: BoxConstraints(
+          minWidth: 200
+        ),
+        child: ElevatedButton(
+          onPressed: onPressed,
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(backgroundColor),
+          ),
+          child: 
+            Text(
+              text,
+              style: TextStyle(color: Colors.black.withOpacity(1.0)),
+            ),
+        )
+      )
+    );
+  }
+}
 
-// }
+class AllModeButtons extends StatelessWidget {
+  const AllModeButtons({
+    Key ? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          TonalButton(
+            text: "Automatic!", 
+            backgroundColor: Colors.lightBlueAccent, 
+            onPressed: () {
+            
+            },
+          ),
+          TonalButton(
+            text: "Manual!", 
+            backgroundColor: Colors.lightBlueAccent, 
+            onPressed: () {
+
+            },
+          ),
+          TonalButton(
+            text: "Creat Room!", 
+            backgroundColor: Colors.lightBlueAccent, 
+            onPressed: () {
+
+            },
+          )
+        ],
+      ),
+    );
+  }
+}

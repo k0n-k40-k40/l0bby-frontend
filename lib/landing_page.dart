@@ -53,7 +53,7 @@ class HelloBar extends StatelessWidget {
   }
 }
 
-class HomeImage extends StatelessWidget {
+class HomeImage extends StatefulWidget {
   const HomeImage({
     Key? key,
     required this.source,
@@ -62,15 +62,55 @@ class HomeImage extends StatelessWidget {
   final String source;
 
   @override
-  Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: const BoxConstraints(),
-      child: Center(
-        child: Image.asset((source)),
+  _HomeImageState createState() => _HomeImageState();
+}
+
+
+class _HomeImageState extends State<HomeImage>
+  with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 1500),
+      vsync: this,
+    )..repeat(reverse: true);
+    _animation = Tween(begin: -15.0, end: 15.0).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Curves.easeInOut,
       ),
     );
   }
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: AnimatedBuilder(
+          animation: _animation,
+          builder: (context, child) {
+            return Transform.translate(
+              offset: Offset(0.0, _animation.value),
+              child: Image.asset(
+                widget.source, // Replace with your image asset path
+                fit: BoxFit.cover,
+              ),
+            );
+          },
+        ),
+      );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 }
+
 
 // class AllModeButtons extends StatelessWidget {
 //   const AllModeButtons({

@@ -1,4 +1,6 @@
+// main.dart
 import 'package:flutter/material.dart';
+import 'src/app_router.dart'; // Import the AppRouter
 
 void main() {
   runApp(const MainApp());
@@ -9,12 +11,21 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp(
+      initialRoute: '/',
+      onGenerateRoute: AppRouter.generateRoute, // Use the AppRouter
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (context) => Scaffold(
+            appBar: AppBar(
+              title: const Text('404'),
+            ),
+            body: const Center(
+              child: Text('404: Not Found'),
+            ),
+          ),
+        );
+      },
     );
   }
 }

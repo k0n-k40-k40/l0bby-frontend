@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(
+            Expanded( // other elements of home page
               child: Column(
                 children: [
                   HelloBar(username: "duy"),
@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            AllModeButtons()
+            AllModeButtons() // button sections of homepage -> routing in here
           ]
         )
       ),

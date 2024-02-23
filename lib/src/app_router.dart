@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'screens/auth.dart';
 import 'screens/room_details.dart';
-import 'screens/user_profile.dart';
+// import 'screens/user_profile.dart';
 import 'layouts/base_layout.dart';
 
 class AppRouter {
@@ -20,11 +20,10 @@ class AppRouter {
       final roomId = settings.name!.substring('/manual/room/'.length);
       return MaterialPageRoute(builder: (_) => RoomDetailsPage(roomId: roomId));
     }
-    if (settings.name == '/profile') {
-      return MaterialPageRoute(
-          builder: (_) => ProfilePage.fromRouteSettings(settings));
-    }
-
+    // if (settings.name == '/profile') {
+    //   return MaterialPageRoute(
+    //       builder: (_) => ProfilePage.fromRouteSettings(settings));
+    // }
     // Fallback for unknown routes
     return MaterialPageRoute(
       builder: (_) => Scaffold(

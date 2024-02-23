@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '/src/screens/auto_match.dart';
 import '/src/screens/home.dart';
 import '/src/screens/manual_match.dart';
+import '/src/screens/user_profile.dart';
 // Import other screens you need in the navigation
 
 class BaseLayout extends StatefulWidget {
@@ -19,6 +20,7 @@ class _BaseLayoutState extends State<BaseLayout> {
     const HomeScreen(),
     const AutoMatchScreen(),
     const ManualMatchScreen(),
+    const ProfilePage(),
     // Add more screens as needed
   ];
 

@@ -1,23 +1,15 @@
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
-  final String profileId;
-
-  const ProfilePage({super.key, required this.profileId});
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Profile')),
-      body: Center(
-        child: Text('Profile ID: $profileId'),
+      body: const Center(
+        child: Text('Profile Page Content Goes Here'),
       ),
     );
-  }
-
-  // Static method to extract arguments
-  static ProfilePage fromRouteSettings(RouteSettings settings) {
-    final args = settings.arguments as Map<String, dynamic>;
-    return ProfilePage(profileId: args['profileId']);
   }
 }

@@ -4,8 +4,8 @@ import 'components/animation_image.dart';
 import 'components/all_buttons.dart';
 // import 'package:l0bby_frontend/navigation_bar.dart';
 
-class LandingPage extends StatelessWidget {
-  const LandingPage({super.key});
+class HomeSreen extends StatelessWidget {
+  const HomeSreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class LandingPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("l0bby"),
       ),
-      backgroundColor: Color.fromARGB(255, 53, 84, 109),
+      backgroundColor: Color.fromARGB(255, 191, 214, 233),
       body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

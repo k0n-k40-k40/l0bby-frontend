@@ -42,10 +42,9 @@ class _BaseLayoutState extends State<BaseLayout> {
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.public), label: 'Auto'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.search), label: 'Auto Match'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.group_work), label: 'Manual Match'),
+                icon: Icon(Icons.group_work), label: 'Manual'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.account_circle), label: 'Profile'),
           ],

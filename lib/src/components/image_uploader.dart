@@ -42,15 +42,10 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
       children: <Widget>[
         Padding(
           padding: EdgeInsets.all(16.0),
-          child: _image != null
-              ? Image.file(
+          child: Image.file(
                   _image,
                   height: 200,
-                )
-              : const Placeholder(
-                  fallbackHeight: 200,
-                  fallbackWidth: double.infinity,
-              ),
+                ),
         ),
         ElevatedButton(
           onPressed: getImage,

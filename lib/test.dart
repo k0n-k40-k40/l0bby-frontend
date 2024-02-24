@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'src/components/date_picker.dart';
+import 'src/components/image_uploader.dart';
 void main() {
   runApp(MyApp());
 }
@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       home: Scaffold(
         body: Center(
-          child: DatePicker(),
+          child: AuthDemo(),
         ),
       ),
     );

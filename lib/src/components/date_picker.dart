@@ -1,3 +1,7 @@
+/*
+this is a container class with width = 300, height = 30
+*/
+
 import 'package:flutter/material.dart';
 
 class DatePicker extends StatefulWidget {
@@ -21,13 +25,13 @@ class _DatePickerState extends State<DatePicker> {
         return Theme(
           data: Theme.of(context).copyWith(
             colorScheme: const ColorScheme.light(
-              primary: Colors.yellow, // header background color
-              onPrimary: Colors.black, // header text color
-              onSurface: Colors.green, // body text color
+              primary: Colors.blue, // header background color
+              onPrimary: Colors.white, // header text color
+              onSurface: Colors.black, // body text color
             ),
             textButtonTheme: TextButtonThemeData(
               style: TextButton.styleFrom(
-                foregroundColor: Colors.red, // button text color
+                foregroundColor: Colors.black, // button text color
               ),
             ),
           ),
@@ -59,24 +63,36 @@ class _DatePickerState extends State<DatePicker> {
       displayText = '$day/$month/$year';
     }
 
-    return Row(
-      children: <Widget>[
-        Expanded(
-          child: Center(
-            child: Text(displayText),
+    return 
+      Container(
+        height: 30,
+        width: 300,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.black12, 
+            width: 2
           ),
+          borderRadius: BorderRadius.circular(20)
         ),
-        Expanded(
-          child: ElevatedButton(
-            onPressed: () => _selectDate(context),
-            child: const Text('Select Date'),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blue, // Background color
-              foregroundColor: Colors.white, // Text color
+        child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Center(
+              child: Text(displayText),
             ),
           ),
-        ),
-      ],
+          Expanded(
+            child: ElevatedButton(
+              onPressed: () => _selectDate(context),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue, // Background color
+                foregroundColor: Colors.white, // Text color
+              ),
+              child: const Text('Select Date'),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

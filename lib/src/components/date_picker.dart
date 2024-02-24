@@ -3,6 +3,7 @@ this is a container class with width = 300, height = 30
 */
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class DatePicker extends StatefulWidget {
   final double width;
@@ -98,10 +99,9 @@ class _DatePickerState extends State<DatePicker> {
               ),
             ),
           ),
-          Container (
+          SizedBox (
             width: widget.width / 4,
             height: widget.height,
-            child: Expanded(
               child: ElevatedButton(
                 onPressed: () => _selectDate(context),
                 style: ElevatedButton.styleFrom(
@@ -112,7 +112,6 @@ class _DatePickerState extends State<DatePicker> {
                   )
                 ),
                 child: const Icon(Icons.calendar_month_rounded),
-              ),
             ),
           ),
         ],

@@ -3,14 +3,13 @@ this is a container class with width = 300, height = 30
 */
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class DatePicker extends StatefulWidget {
   final double width;
   final double height;
   final double radius;
 
-  const DatePicker({ 
+  const DatePicker({
     super.key,
     required this.width,
     required this.height,
@@ -80,7 +79,7 @@ class _DatePickerState extends State<DatePicker> {
         width: widget.width,
         decoration: BoxDecoration(
           border: Border.all(
-            color: Colors.black12, 
+            color: Colors.black12,
             width: 2
           ),
           borderRadius: BorderRadius.circular(widget.radius)
@@ -106,13 +105,13 @@ class _DatePickerState extends State<DatePicker> {
                 onPressed: () => _selectDate(context),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue, // Background color
-                  foregroundColor: Colors.white, // Text color   
+                  foregroundColor: Colors.white, // Text color
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(widget.radius), // Set border radius here
                   )
                 ),
                 child: const Icon(Icons.calendar_month_rounded),
-            ),
+              ),
           ),
         ],
       ),

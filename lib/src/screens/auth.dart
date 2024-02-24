@@ -19,7 +19,7 @@ class AuthScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // ImageUploadWidget(),
-            AuthDemo(),
+            const AuthDemo(),
             ElevatedButton(
               onPressed: () {
                 // Navigate to the second screen using a named route.

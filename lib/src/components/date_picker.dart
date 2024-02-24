@@ -5,7 +5,16 @@ this is a container class with width = 300, height = 30
 import 'package:flutter/material.dart';
 
 class DatePicker extends StatefulWidget {
-  const DatePicker({ super.key });
+  final double width;
+  final double height;
+  final double radius;
+
+  const DatePicker({
+    super.key,
+    required this.width,
+    required this.height,
+    required this.radius
+  });
 
   @override
   State<DatePicker> createState() => _DatePickerState();
@@ -50,8 +59,8 @@ class _DatePickerState extends State<DatePicker> {
 
   @override
   Widget build(BuildContext context) {
-    String displayText = "pick a date!";
-
+    String displayText = "Pick a date!";
+    Color dateColor = const Color.fromRGBO(0, 0, 0, 0.205);
     if (isUserChoose) {
       String year = _selectedDate.year.toString();
       String month = _selectedDate.month.toString();
@@ -61,35 +70,48 @@ class _DatePickerState extends State<DatePicker> {
       if (day.length < 2) day = '0$day';
 
       displayText = '$day/$month/$year';
+      dateColor = const Color.fromRGBO(0, 0, 0, 0.83);
     }
 
-    return 
+    return
       Container(
-        height: 30,
-        width: 300,
+        height: widget.height,
+        width: widget.width,
         decoration: BoxDecoration(
           border: Border.all(
-            color: Colors.black12, 
+            color: Colors.black12,
             width: 2
           ),
-          borderRadius: BorderRadius.circular(20)
+          borderRadius: BorderRadius.circular(widget.radius)
         ),
         child: Row(
         children: <Widget>[
           Expanded(
             child: Center(
-              child: Text(displayText),
+              child: Text(
+                displayText,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: widget.width / 15,
+                  color: dateColor
+                ),
+              ),
             ),
           ),
-          Expanded(
-            child: ElevatedButton(
-              onPressed: () => _selectDate(context),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue, // Background color
-                foregroundColor: Colors.white, // Text color
+          SizedBox (
+            width: widget.width / 4,
+            height: widget.height,
+              child: ElevatedButton(
+                onPressed: () => _selectDate(context),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue, // Background color
+                  foregroundColor: Colors.white, // Text color
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(widget.radius), // Set border radius here
+                  )
+                ),
+                child: const Icon(Icons.calendar_month_rounded),
               ),
-              child: const Text('Select Date'),
-            ),
           ),
         ],
       ),

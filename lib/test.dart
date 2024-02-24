@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       home: Scaffold(
         body: Center(
-          child: DatePicker(),
+          child: DatePicker(width: 300, height: 50, radius: 30,),
         ),
       ),
     );

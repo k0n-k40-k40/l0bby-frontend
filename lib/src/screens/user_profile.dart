@@ -39,8 +39,6 @@ class ProfilePage extends StatelessWidget {
                       unselectedButtonStyle, // Apply unselectedButtonStyle to the second button
                   onPressed: () {
                     // Handle 'Bài viết' button press
-                    Navigator.pushNamed(
-                        context, '/posts'); // Example navigation
                   },
                   child: const Text('Bài viết'),
                 ),
@@ -50,7 +48,6 @@ class ProfilePage extends StatelessWidget {
                       unselectedButtonStyle, // Apply unselectedButtonStyle to the third button
                   onPressed: () {
                     // Handle 'Thông tin' button press
-                    Navigator.pushNamed(context, '/info'); // Example navigation
                   },
                   child: const Text('Thông tin'),
                 ),

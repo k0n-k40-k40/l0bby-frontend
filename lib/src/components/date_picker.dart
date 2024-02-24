@@ -3,7 +3,6 @@ this is a container class with width = 300, height = 30
 */
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class DatePicker extends StatefulWidget {
   final double width;
@@ -61,7 +60,7 @@ class _DatePickerState extends State<DatePicker> {
   @override
   Widget build(BuildContext context) {
     String displayText = "Pick a date!";
-    Color dateColor = Color.fromRGBO(0, 0, 0, 0.205);
+    Color dateColor = const Color.fromRGBO(0, 0, 0, 0.205);
     if (isUserChoose) {
       String year = _selectedDate.year.toString();
       String month = _selectedDate.month.toString();

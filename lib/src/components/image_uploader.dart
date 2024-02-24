@@ -88,17 +88,19 @@ class CheckButton extends StatefulWidget {
 
 class _CheckButton extends State<CheckButton> {
   bool _isLoading = false;
-  // Color
+  bool _isValidated = false;
+
   String buttonText = "Validate";
-  Color curCorlor = Colors.white;
-  Color curText = const Color.fromARGB(255, 211, 115, 228);
+  Color curCorlor = Colors.blue;
+  Color curText = Colors.white;
 
   void changeContend(String message) {
     setState(() {
       _isLoading = true;
       if (message == 'no image seleted') {
-        buttonText = "please selected an image";
+        buttonText = "please select an image";
       } else {
+        _isValidated = true;
         buttonText = "validation complete";
         curCorlor = Colors.greenAccent;
         curText = Colors.white;
@@ -114,6 +116,15 @@ class _CheckButton extends State<CheckButton> {
 
   @override
   Widget build(BuildContext context) {
+
+    if (widget.filename != 'no image seleted' && !_isValidated) {
+      // print(widget.filename);
+      buttonText = "Validate";
+      curText = Colors.white;
+      curCorlor = Colors.blue;
+    }
+
+
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: curCorlor
@@ -124,8 +135,7 @@ class _CheckButton extends State<CheckButton> {
       child: _isLoading ? CircularProgressIndicator() : Text(
         buttonText,
         style: TextStyle(
-                color: curText, // Change text color to white
-                fontWeight: FontWeight.bold, // Add bold font weight
+                color: curText, // Change text color to white // Add bold font weight
                 fontSize: 16.0, // Set font size to 16
               )
         )
@@ -158,14 +168,24 @@ class _AuthDemo extends State<AuthDemo> {
       children: [
         Container(
           decoration: const BoxDecoration(
-            color: Colors.amberAccent,
+            color: Color.fromARGB(255, 132, 169, 195),
+            borderRadius: BorderRadius.all(Radius.circular(20))
           ),
           constraints: const BoxConstraints(minHeight: 300, minWidth:  500, maxWidth:  500),
           child: Center(
               child: ImageUploadWidget(getImagePath: getImagePath,),
           )
         ),
-        CheckButton(filename: imagePath),
+        Padding(
+          padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
+          child: 
+          ConstrainedBox(
+            constraints: BoxConstraints(minWidth: 210), 
+            child: Expanded(
+              child: CheckButton(filename: imagePath),
+            )
+          )
+        )
       ],
     );
   }

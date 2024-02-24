@@ -6,12 +6,63 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    final selectedButtonStyle = TextButton.styleFrom(
+      foregroundColor: Colors.white,
+      backgroundColor: const Color(0xFF9B40BF),
+    );
+    final unselectedButtonStyle = TextButton.styleFrom(
+      foregroundColor: Colors.white, // Text color for unselected items
+      backgroundColor: const Color(0xFF4F4F4F),
+    );
+    return Scaffold(
+        //create an appbar with 3 buttons in the center with the text inside be 'Ảnh', 'Bài viết', 'Thông tin', highlight the first button because it's the current page
+        appBar: AppBar(
+          backgroundColor: const Color(0xFF333333),
+          title: Center(
+            // Wrap the Row with Center
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment
+                  .spaceEvenly, // Use this if you want even spacing around the items
+              children: [
+                TextButton(
+                  style:
+                      selectedButtonStyle, // Apply selectedButtonStyle to the first button
+                  onPressed: () {
+                    // Handle 'Ảnh' button press
+                  },
+                  child: const Text('Ảnh'),
+                ),
+                const SizedBox(width: 10),
+                TextButton(
+                  style:
+                      unselectedButtonStyle, // Apply unselectedButtonStyle to the second button
+                  onPressed: () {
+                    // Handle 'Bài viết' button press
+                    Navigator.pushNamed(
+                        context, '/posts'); // Example navigation
+                  },
+                  child: const Text('Bài viết'),
+                ),
+                const SizedBox(width: 10),
+                TextButton(
+                  style:
+                      unselectedButtonStyle, // Apply unselectedButtonStyle to the third button
+                  onPressed: () {
+                    // Handle 'Thông tin' button press
+                    Navigator.pushNamed(context, '/info'); // Example navigation
+                  },
+                  child: const Text('Thông tin'),
+                ),
+              ],
+            ),
+          ),
+        ),
         backgroundColor: Colors.black,
-        bottomNavigationBar: CustomNavigationBar(
+        bottomNavigationBar: const CustomNavigationBar(
           currentIndex: 3,
         ),
-        body: SingleChildScrollView(
+        body: const SingleChildScrollView(
             child: Column(
           children: [
             _ProfileInformation(

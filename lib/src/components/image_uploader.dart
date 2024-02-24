@@ -6,7 +6,7 @@ import 'package:image_picker/image_picker.dart';
 
 class ImageUploadWidget extends StatefulWidget {
   final Function(String) getImagePath;
-  const ImageUploadWidget({ 
+  const ImageUploadWidget({
     super.key,
     required this.getImagePath,
    });
@@ -62,7 +62,7 @@ class CheckButton extends StatefulWidget {
   });
 
   @override
-  State<CheckButton> createState() => _CheckButton(); 
+  State<CheckButton> createState() => _CheckButton();
 }
 
 class _CheckButton extends State<CheckButton> {
@@ -83,7 +83,7 @@ class _CheckButton extends State<CheckButton> {
         buttonText = "validation complete";
         curCorlor = Colors.greenAccent;
         curText = Colors.white;
-      } 
+      }
     });
 
     Future.delayed(const Duration(seconds: 2), () {
@@ -103,14 +103,13 @@ class _CheckButton extends State<CheckButton> {
       curCorlor = Colors.blue;
     }
 
-
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: curCorlor
       ),
       onPressed: _isLoading ? null: () => {
         changeContend(widget.filename)
-      }, 
+      },
       child: _isLoading ? const CircularProgressIndicator() : Text(
         buttonText,
         style: TextStyle(
@@ -141,7 +140,7 @@ class _AuthDemo extends State<AuthDemo> {
 
   @override
   Widget build(BuildContext context) {
-    
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -157,11 +156,11 @@ class _AuthDemo extends State<AuthDemo> {
         ),
         Padding(
           padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-          child: 
-          ConstrainedBox(
-            constraints: const BoxConstraints(minWidth: 210), 
-            child: CheckButton(filename: imagePath),
-          )
+          child:
+            ConstrainedBox(
+              constraints: const BoxConstraints(minWidth: 210),
+              child: CheckButton(filename: imagePath),
+            )
         )
       ],
     );

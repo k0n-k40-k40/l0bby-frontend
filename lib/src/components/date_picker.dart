@@ -9,11 +9,11 @@ class DatePicker extends StatefulWidget {
   final double height;
   final double radius;
 
-  const DatePicker({ 
+  const DatePicker({
     super.key,
     required this.width,
     required this.height,
-    required this.radius 
+    required this.radius
   });
 
   @override
@@ -73,13 +73,13 @@ class _DatePickerState extends State<DatePicker> {
       dateColor = const Color.fromRGBO(0, 0, 0, 0.83);
     }
 
-    return 
+    return
       Container(
         height: widget.height,
         width: widget.width,
         decoration: BoxDecoration(
           border: Border.all(
-            color: Colors.black12, 
+            color: Colors.black12,
             width: 2
           ),
           borderRadius: BorderRadius.circular(widget.radius)
@@ -97,7 +97,7 @@ class _DatePickerState extends State<DatePicker> {
                 ),
               ),
             ),
-          ), 
+          ),
           SizedBox (
             width: widget.width / 4,
             height: widget.height,
@@ -105,7 +105,7 @@ class _DatePickerState extends State<DatePicker> {
                 onPressed: () => _selectDate(context),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue, // Background color
-                  foregroundColor: Colors.white, // Text color   
+                  foregroundColor: Colors.white, // Text color
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(widget.radius), // Set border radius here
                   )

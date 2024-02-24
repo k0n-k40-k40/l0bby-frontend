@@ -37,15 +37,30 @@ class CustomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      backgroundColor: const Color(0xFF333333),
       currentIndex: currentIndex,
       onTap: (index) => _navigateTo(index, context),
       items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.public), label: 'Auto'),
         BottomNavigationBarItem(
-            icon: Icon(Icons.meeting_room), label: 'Manual'),
+          icon: Icon(Icons.home),
+          label: 'Home',
+          backgroundColor: Color(0xFF333333),
+        ),
         BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle), label: 'Profile'),
+          icon: Icon(Icons.public),
+          label: 'Auto',
+          backgroundColor: Color(0xFF333333),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.meeting_room),
+          label: 'Manual',
+          backgroundColor: Color(0xFF333333),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.account_circle),
+          label: 'Profile',
+          backgroundColor: Color(0xFF333333),
+        ),
       ],
     );
   }

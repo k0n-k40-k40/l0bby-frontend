@@ -53,19 +53,6 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
   }
 }
 
-
-// class ImageUploadWidget extends StatefulWidget {
-//   final Function(String) getImagePath;
-//   const ImageUploadWidget({ 
-//     super.key,
-//     required this.getImagePath,
-//    });
-
-//   @override
-//   State<ImageUploadWidget> createState() => _ImageUploadWidgetState();
-// }
-
-
 class CheckButton extends StatefulWidget {
   final String filename;
 
@@ -99,7 +86,7 @@ class _CheckButton extends State<CheckButton> {
       } 
     });
 
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         _isLoading = false;
       });
@@ -124,7 +111,7 @@ class _CheckButton extends State<CheckButton> {
       onPressed: _isLoading ? null: () => {
         changeContend(widget.filename)
       }, 
-      child: _isLoading ? CircularProgressIndicator() : Text(
+      child: _isLoading ? const CircularProgressIndicator() : Text(
         buttonText,
         style: TextStyle(
                 color: curText, // Change text color to white // Add bold font weight
@@ -169,13 +156,11 @@ class _AuthDemo extends State<AuthDemo> {
           )
         ),
         Padding(
-          padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
+          padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
           child: 
           ConstrainedBox(
-            constraints: BoxConstraints(minWidth: 210), 
-            child: Expanded(
-              child: CheckButton(filename: imagePath),
-            )
+            constraints: const BoxConstraints(minWidth: 210), 
+            child: CheckButton(filename: imagePath),
           )
         )
       ],

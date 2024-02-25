@@ -14,7 +14,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/',
+      initialRoute: '/login',
       onGenerateRoute: AppRouter.generateRoute, // Use the AppRouter
       onUnknownRoute: (settings) {
         return MaterialPageRoute(

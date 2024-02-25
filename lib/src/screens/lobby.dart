@@ -32,7 +32,7 @@ class _LobbyPageState extends State<LobbyPage> {
     Colors.teal,
   ];
   String sportName = "Cầu lông";
-  String locationName = "Sân Cầu Lông Lý Phong";
+  String locationName = "Sân Cầu Lông Cao Lỗ";
   String time = "14:00 PM - 15:00 PM";
   String date = "25/02/2024";
 
@@ -90,11 +90,11 @@ class _LobbyPageState extends State<LobbyPage> {
             onPressed: allReady
                 ? () {
                     // Action for starting the match
-                    Fluttertoast.showToast(
-                      msg: 'Starting Match...',
-                      toastLength: Toast.LENGTH_SHORT,
-                      gravity: ToastGravity.BOTTOM,
-                    );
+                    // Fluttertoast.showToast(
+                    //   msg: 'Starting Match...',
+                    //   toastLength: Toast.LENGTH_SHORT,
+                    //   gravity: ToastGravity.BOTTOM,
+                    // );
                     // Navigate to finding match page
                     Navigator.pushNamed(context, '/finding');
                   }

@@ -42,10 +42,10 @@ class _MatchedPageState extends State<MatchedPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF1E1E1E),
-      // appBar: AppBar(
-      //   backgroundColor: const Color(0xFF333333),
-      //   title: const Text("Matched", style: TextStyle(color: Colors.white)),
-      // ),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF333333),
+        title: const Text("Trận đấu", style: TextStyle(color: Colors.white)),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -60,6 +60,23 @@ class _MatchedPageState extends State<MatchedPage> {
         },
         child: const Icon(Icons.chat),
         backgroundColor: Colors.blue,
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ElevatedButton(
+          onPressed: () {
+            // Navigate to map
+          },
+          child: const Text(
+            "Đặt sân ngay",
+            style: TextStyle(fontSize: 18.0),
+          ),
+          style: ElevatedButton.styleFrom(
+            foregroundColor: Colors.white,
+            backgroundColor: const Color(0xFF9B40BF), // Text color
+            minimumSize: const Size(double.infinity, 60), // Button size
+          ),
+        ),
       ),
     );
   }

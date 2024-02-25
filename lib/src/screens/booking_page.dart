@@ -54,19 +54,40 @@ _showNotification(BuildContext context, String phoneNumber) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text('Notification'),
+        title: const Text('Notification'),
         content: Text('Do you want to call $phoneNumber?'),
         actions: <Widget>[
           TextButton(
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text('OK'),
+            child: const Text('OK'),
           ),
         ],
       );
     },
   );
+}
+
+class MyInk extends StatelessWidget {
+  final Widget child;
+
+  const MyInk({super.key, required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return Ink(
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [Colors.blue, Colors.green], // Gradient colors
+          begin: Alignment.centerLeft, // Gradient begin alignment
+          end: Alignment.centerRight, // Gradient end alignment
+        ),
+        borderRadius: BorderRadius.circular(30), // Same border radius as the button
+      ),
+      child: child,
+    );
+  }
 }
 
 class CallButton extends StatelessWidget {
@@ -79,13 +100,37 @@ class CallButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
+    return
+      ElevatedButton (
         onPressed: () => {
           _showNotification(context, phoneNumber),
         },
-        child: const Text(
-          "Book this court!!",
-        )
+        style: ElevatedButton.styleFrom(
+          backgroundColor: const Color.fromARGB(255, 26, 125, 207).withOpacity(0.9), // Background color
+          padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 0), // Button padding
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30), // Button border radius
+          ),
+          textStyle: const TextStyle(
+            fontSize: 26, // Button text size
+            fontWeight: FontWeight.normal,
+          ),
+          elevation: 3,
+        ),
+        child: MyInk(
+          child: Container(
+            constraints: const BoxConstraints(minWidth: 88, minHeight: 45), // Button size
+            alignment: Alignment.center,
+            child: const Text(
+              'Book this court!!',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white, // Text color
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+      ),
       );
   }
 
@@ -95,10 +140,10 @@ class BookingPage extends StatelessWidget {
   final CourtInfo courtInfo;
 
   const BookingPage({
-    Key? key,
+    super.key,
     required this.backgroundFileName,
     required this.courtInfo,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

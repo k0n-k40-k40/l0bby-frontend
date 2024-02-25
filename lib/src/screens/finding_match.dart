@@ -1,22 +1,51 @@
 import 'package:flutter/material.dart';
 
-class FindingMatchPage extends StatelessWidget {
-  const FindingMatchPage({super.key});
+class FindingMatchScreen extends StatefulWidget {
+  const FindingMatchScreen({super.key});
+
+  @override
+  State<FindingMatchScreen> createState() => _FindingMatchScreenState();
+}
+
+class _FindingMatchScreenState extends State<FindingMatchScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 5), () {
+      if (mounted) {
+        Navigator.pushReplacementNamed(context, '/lobby');
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF1E1E1E),
       appBar: AppBar(
-        title: const Text('Finding Match'),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: const Color(0xFF333333),
+        title:
+            const Text('Finding Match', style: TextStyle(color: Colors.white)),
       ),
-      body: const Center(
-        child: Text(
-          'Looking for a match...',
-          style: TextStyle(fontSize: 24),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+              strokeWidth: 6.0,
+            ),
+            const SizedBox(
+                height:
+                    24), // Provides some spacing between the CircularProgressIndicator and the text
+            Text(
+              'Looking for opponents...',
+              style:
+                  TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 18),
+            ),
+          ],
         ),
       ),
-      backgroundColor: Colors.black,
     );
   }
 }

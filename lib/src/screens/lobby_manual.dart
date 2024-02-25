@@ -4,19 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/services.dart';
 
-class LobbyPage extends StatefulWidget {
-  const LobbyPage({super.key});
+class LobbyManualScreen extends StatefulWidget {
+  const LobbyManualScreen({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _LobbyPageState createState() => _LobbyPageState();
+  _LobbyManualScreenState createState() => _LobbyManualScreenState();
 }
 
-class _LobbyPageState extends State<LobbyPage> {
+class _LobbyManualScreenState extends State<LobbyManualScreen> {
   final List<String> friends = ['Alice', 'Bob', 'Charlie'];
   List<String> filteredFriends = [];
   final List<String> invitedFriends = []; // List to track invited friends
   final List<Map<String, dynamic>> members = [
+    {'name': 'Admin', 'isReady': true},
     {'name': 'Trường', 'isReady': true},
     {'name': 'Duy', 'isReady': true},
     {'name': 'Quân', 'isReady': true},
@@ -32,11 +33,11 @@ class _LobbyPageState extends State<LobbyPage> {
     Colors.teal,
   ];
   String sportName = "Cầu lông";
-  String locationName = "Sân Cầu Lông Cao Lỗ";
-  String time = "14:00 PM - 15:00 PM";
-  String date = "25/02/2024";
+  String locationName = "Công viên Tao Đàn";
+  String time = "10:00 AM - 12:00 PM";
+  String date = "01/01/2024";
 
-  String roomCode = "242271012badminton";
+  String roomCode = "512279954badminton";
   @override
   void initState() {
     super.initState();
@@ -45,13 +46,13 @@ class _LobbyPageState extends State<LobbyPage> {
 
   @override
   Widget build(BuildContext context) {
-    bool allReady = members.every((member) => member['isReady'] == true);
+    members.every((member) => member['isReady'] == true);
 
     return Scaffold(
       backgroundColor: const Color(0xFF1E1E1E),
       appBar: AppBar(
         backgroundColor: const Color(0xFF333333),
-        title: const Text("Room 195", style: TextStyle(color: Colors.white)),
+        title: const Text("Room 345", style: TextStyle(color: Colors.white)),
         iconTheme: const IconThemeData(
             color: Colors.white), // Ensure back arrow is white
         actions: [
@@ -70,51 +71,7 @@ class _LobbyPageState extends State<LobbyPage> {
             _buildLobbyInfoSection(),
             _buildFriendsSection(context),
             _buildMembersSection(),
-            if (!allReady) // Conditionally show warning text
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  'Còn người chơi chưa sẵn sàng',
-                  style: TextStyle(fontSize: 14.0, color: Colors.redAccent),
-                ),
-              ),
           ],
-        ),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.transparent,
-        elevation: 0,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ElevatedButton(
-            onPressed: allReady
-                ? () {
-                    // Action for starting the match
-                    // Fluttertoast.showToast(
-                    //   msg: 'Starting Match...',
-                    //   toastLength: Toast.LENGTH_SHORT,
-                    //   gravity: ToastGravity.BOTTOM,
-                    // );
-                    // Navigate to finding match page
-                    Navigator.pushNamed(context, '/finding');
-                  }
-                : null,
-            child: Text(
-              "Tìm trận đấu",
-              style: TextStyle(
-                  color: allReady ? Colors.white : Colors.grey,
-                  fontSize:
-                      18.0), // Set font color to white if everyone is ready, otherwise set it to grey
-            ),
-            style: ElevatedButton.styleFrom(
-              backgroundColor:
-                  allReady ? const Color(0xFF9B40BF) : const Color(0xFF333333),
-              minimumSize: const Size(
-                  double.infinity, 80), // Make button wider and taller
-              elevation: 8, // Add elevation for floating effect
-              shadowColor: Colors.black.withOpacity(0.4), // Set shadow color
-            ),
-          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -403,7 +360,7 @@ class _LobbyPageState extends State<LobbyPage> {
 
   Widget _buildMembersSection() {
     // Calculate the number of empty slots needed.
-    int emptySlots = 5 - members.length;
+    int emptySlots = 10 - members.length;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

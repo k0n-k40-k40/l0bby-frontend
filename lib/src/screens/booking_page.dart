@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 import '../components/stars_rating.dart';
+import '../components/clock.dart';
+
 
 class CourtInfo extends StatelessWidget {
   final String name;
   final String address;
   final double rating;
   final String phoneNumber;
+  final DateTime dateTime;
+
 
   const CourtInfo ({
     super.key,
     required this.name,
     required this.address,
     required this.rating,
-    required this.phoneNumber
+    required this.phoneNumber,
+    required this.dateTime,
   });
 
   @override
@@ -106,26 +111,26 @@ class CallButton extends StatelessWidget {
           _showNotification(context, phoneNumber),
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color.fromARGB(255, 26, 125, 207).withOpacity(0.9), // Background color
-          padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 0), // Button padding
+          backgroundColor: const Color.fromARGB(255, 26, 125, 207).withOpacity(0.9),
+          padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30), // Button border radius
+            borderRadius: BorderRadius.circular(30),
           ),
           textStyle: const TextStyle(
-            fontSize: 26, // Button text size
+            fontSize: 26,
             fontWeight: FontWeight.normal,
           ),
           elevation: 3,
         ),
         child: MyInk(
           child: Container(
-            constraints: const BoxConstraints(minWidth: 88, minHeight: 45), // Button size
+            constraints: const BoxConstraints(minWidth: 88, minHeight: 45),
             alignment: Alignment.center,
             child: const Text(
               'Book this court!!',
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Colors.white, // Text color
+                color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -147,6 +152,7 @@ class BookingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -163,9 +169,25 @@ class BookingPage extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: CallButton(phoneNumber: courtInfo.phoneNumber),
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: CallButton(phoneNumber: courtInfo.phoneNumber),
+                  ),
+                  Padding(padding: const EdgeInsets.only(left: 20, right: 20), child:
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      constraints: const BoxConstraints(maxWidth: 300, minHeight: 50),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.3),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                      ),
+                      child: ClockWidget(dateTime: courtInfo.dateTime,
+                      ),
+                    )
+                  ,)
+                ]
               ),
 
               Padding(

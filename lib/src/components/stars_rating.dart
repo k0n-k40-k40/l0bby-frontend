@@ -10,7 +10,7 @@ class StarRating extends StatelessWidget {
   final Color borderColor;
 
   const StarRating({
-    Key? key,
+    super.key,
     required this.rating,
     this.size = 24,
     this.color = Colors.orange,
@@ -18,7 +18,7 @@ class StarRating extends StatelessWidget {
     this.halfStar = Icons.star_half,
     this.emptyStar = Icons.star_border,
     this.borderColor = Colors.orange,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

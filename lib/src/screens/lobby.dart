@@ -95,7 +95,8 @@ class _LobbyPageState extends State<LobbyPage> {
                       toastLength: Toast.LENGTH_SHORT,
                       gravity: ToastGravity.BOTTOM,
                     );
-                    // Navigate to the finding match page or start the matching process
+                    // Navigate to finding match page
+                    Navigator.pushNamed(context, '/finding');
                   }
                 : null,
             child: Text(

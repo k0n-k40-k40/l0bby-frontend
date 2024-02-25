@@ -34,9 +34,9 @@ class _MatchedPageState extends State<MatchedPage> {
     Colors.teal,
   ];
   String sportName = "Cầu lông";
-  String locationName = "Công viên Tao Đàn";
-  String time = "10:00 AM - 12:00 PM";
-  String date = "01/01/2024";
+  String locationName = "Sân Cầu Lông Cao Lỗ";
+  String time = "14:00 PM - 15:00 PM";
+  String date = "25/02/2024";
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +65,8 @@ class _MatchedPageState extends State<MatchedPage> {
         padding: const EdgeInsets.all(8.0),
         child: ElevatedButton(
           onPressed: () {
-            // Navigate to map
+            // Navigate to /booking
+            Navigator.pushNamed(context, '/booking');
           },
           child: const Text(
             "Đặt sân ngay",

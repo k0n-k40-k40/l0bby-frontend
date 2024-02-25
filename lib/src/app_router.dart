@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:l0bby_frontend/src/screens/auto_match.dart';
 import 'package:l0bby_frontend/src/screens/login.dart';
-import 'package:l0bby_frontend/src/screens/manual_match.dart';
 import 'package:l0bby_frontend/src/screens/room_list.dart';
 import 'screens/auth.dart';
 import 'screens/room_details.dart';

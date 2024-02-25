@@ -8,11 +8,10 @@ class HelloBar extends StatelessWidget {
 
   final String username;
 
-
   BoxDecoration myBoxDecoration() {
     return const BoxDecoration(
       borderRadius: BorderRadius.all(Radius.circular(5.0)),
-      color: Color.fromARGB(255, 136, 137, 211),    
+
     );
   }
 
@@ -23,19 +22,19 @@ class HelloBar extends StatelessWidget {
 
     return ConstrainedBox(
       constraints: const BoxConstraints(),
-        child: Container(
-          decoration: myBoxDecoration(),
-          child: Padding(
-            padding: const EdgeInsets.all(10),
-            child: Text(
-            "hello, $username!!\n Lets play some games!!",
-              style: TextStyle(
-                fontSize: textSize, 
-                fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
-            ),
+
+      child: Container(
+        decoration: myBoxDecoration(),
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Text(
+            "l0bby",
+            style: TextStyle(fontSize: textSize, fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
           ),
+        ),
       ),
     );
   }
 }
+

@@ -9,8 +9,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  google_fonts: ^6.1.0
   fluttertoast: ^8.0.8
   image_picker: ^0.8.4+4
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
@@ -22,3 +24,4 @@ flutter:
   assets:
     - lib/assets/running_tree.png
     - lib/assets/images/
+    - lib/assets/courts/

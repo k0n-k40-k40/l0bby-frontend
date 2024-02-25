@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:l0bby_frontend/src/screens/auto_match.dart';
 import 'package:l0bby_frontend/src/screens/login.dart';
 import 'package:l0bby_frontend/src/screens/manual_match.dart';
+import 'package:l0bby_frontend/src/screens/room_list.dart';
 import 'screens/auth.dart';
 import 'screens/room_details.dart';
 import 'screens/home.dart';
@@ -17,8 +18,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case '/auth':
         return MaterialPageRoute(builder: (_) => const AuthScreen());
-      case '/manual':
-        return MaterialPageRoute(builder: (_) => const ManualMatchScreen());
+      case '/manual/room_list':
+        return MaterialPageRoute(builder: (_) => const RoomListScreen());
       case '/automatic':
         return MaterialPageRoute(builder: (_) => const AutoMatchScreen());
       case '/profile':

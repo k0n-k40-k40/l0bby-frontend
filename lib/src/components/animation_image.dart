@@ -35,7 +35,7 @@ class _HomeImageState extends State<HomeImage>
 
   @override
   Widget build(BuildContext context) {
-    return 
+    return
       Transform.scale(
         scale: 1,
         child: Center(
@@ -53,7 +53,7 @@ class _HomeImageState extends State<HomeImage>
         ),
        ),
       );
-      
+
   }
 
   @override

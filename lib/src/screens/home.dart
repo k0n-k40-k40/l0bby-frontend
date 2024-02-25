@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   HelloBar(username: "duy"),
-                  HomeImage(source: "lib/assets/running_tree.png"),
+                  HomeImage(source: "lib/assets/grasshopper.png"),
                 ],
               ),
             ),

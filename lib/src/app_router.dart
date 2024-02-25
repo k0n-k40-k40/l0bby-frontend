@@ -38,6 +38,19 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const LobbyManualScreen());
       case '/finding_room':
         return MaterialPageRoute(builder: (_) => const FindingRoomScreen());
+      case '/booking':
+        return MaterialPageRoute(
+            builder: (_) => BookingPage(
+                  backgroundFileName: 'lib/assets/courts/court_1.jpg',
+                  courtInfo: CourtInfo(
+                    name: "Sân Cầu Lông Cao Lỗ",
+                    address:
+                        "45 Cao Lỗ, Phương 4, Quận 8, Thành phố Hồ Chí Minh",
+                    rating: 3.5,
+                    phoneNumber: "09090909090",
+                    dateTime: DateTime(2024, 2, 25, 14, 00),
+                  ),
+                ));
     }
 
     // Handling dynamic routes

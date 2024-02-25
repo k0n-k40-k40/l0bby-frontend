@@ -32,9 +32,9 @@ class _LobbyPageState extends State<LobbyPage> {
     Colors.teal,
   ];
   String sportName = "Cầu lông";
-  String locationName = "Công viên Tao Đàn";
-  String time = "10:00 AM - 12:00 PM";
-  String date = "01/01/2024";
+  String locationName = "Sân Cầu Lông Lý Phong";
+  String time = "14:00 PM - 15:00 PM";
+  String date = "25/02/2024";
 
   String roomCode = "242271012badminton";
   @override
@@ -51,7 +51,7 @@ class _LobbyPageState extends State<LobbyPage> {
       backgroundColor: const Color(0xFF1E1E1E),
       appBar: AppBar(
         backgroundColor: const Color(0xFF333333),
-        title: const Text("Room 345", style: TextStyle(color: Colors.white)),
+        title: const Text("Room 195", style: TextStyle(color: Colors.white)),
         iconTheme: const IconThemeData(
             color: Colors.white), // Ensure back arrow is white
         actions: [
@@ -403,7 +403,7 @@ class _LobbyPageState extends State<LobbyPage> {
 
   Widget _buildMembersSection() {
     // Calculate the number of empty slots needed.
-    int emptySlots = 10 - members.length;
+    int emptySlots = 5 - members.length;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

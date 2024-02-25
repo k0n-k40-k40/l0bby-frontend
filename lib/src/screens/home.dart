@@ -17,18 +17,21 @@ class HomeScreen extends StatelessWidget {
         currentIndex: 0,
       ),
       body: Center(
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Expanded(
-          // other elements of home page
-          child: Column(
-            children: [
-              HelloBar(username: "duy"),
-              HomeImage(source: "lib/assets/running_tree.png"),
-            ],
-          ),
-        ),
-        AllModeButtons() // button sections of homepage -> routing in here
-      ])),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded( // other elements of home page
+              child: Column(
+                children: [
+                  HelloBar(username: "duy"),
+                  HomeImage(source: "lib/assets/running_tree.png"),
+                ],
+              ),
+            ),
+            AllModeButtons() // button sections of homepage -> routing in here
+          ]
+        )
+      ),
     );
   }
 }

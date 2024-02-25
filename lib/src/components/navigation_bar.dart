@@ -41,9 +41,9 @@ class CustomNavigationBar extends StatelessWidget {
       onTap: (index) => _navigateTo(index, context),
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Manual'),
+        BottomNavigationBarItem(icon: Icon(Icons.public), label: 'Auto'),
         BottomNavigationBarItem(
-            icon: Icon(Icons.meeting_room), label: 'Automatic'),
+            icon: Icon(Icons.meeting_room), label: 'Manual'),
         BottomNavigationBarItem(
             icon: Icon(Icons.account_circle), label: 'Profile'),
       ],

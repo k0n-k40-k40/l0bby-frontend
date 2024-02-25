@@ -11,6 +11,7 @@ class HelloBar extends StatelessWidget {
   BoxDecoration myBoxDecoration() {
     return const BoxDecoration(
       borderRadius: BorderRadius.all(Radius.circular(5.0)),
+
     );
   }
 
@@ -21,6 +22,7 @@ class HelloBar extends StatelessWidget {
 
     return ConstrainedBox(
       constraints: const BoxConstraints(),
+
       child: Container(
         decoration: myBoxDecoration(),
         child: Padding(
@@ -35,3 +37,4 @@ class HelloBar extends StatelessWidget {
     );
   }
 }
+

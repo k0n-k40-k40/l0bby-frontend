@@ -28,7 +28,7 @@ class RoomListScreen extends StatelessWidget {
             TextButton(
               child: const Text('Join'),
               onPressed: () {
-                Navigator.pushNamed(context, '/lobby');
+                Navigator.pushNamed(context, '/lobby_manual');
               },
             ),
           ],
@@ -88,54 +88,6 @@ class RoomListScreen extends StatelessWidget {
         'endTime': '20:00',
         'date': '26/10/2023',
       },
-      {
-        'id': 303,
-        'sportName': 'Bơi lội',
-        'location': 'Bể bơi F',
-        'startTime': '06:00',
-        'endTime': '08:00',
-        'date': '27/10/2023',
-      },
-      {
-        'id': 404,
-        'sportName': 'Gym',
-        'location': 'Trung tâm thể dục G',
-        'startTime': '09:00',
-        'endTime': '11:00',
-        'date': '28/10/2023',
-      },
-      {
-        'id': 505,
-        'sportName': 'Yoga',
-        'location': 'Trung tâm Yoga H',
-        'startTime': '07:00',
-        'endTime': '09:00',
-        'date': '29/10/2023',
-      },
-      {
-        'id': 606,
-        'sportName': 'Nhảy',
-        'location': 'Trung tâm nhảy I',
-        'startTime': '16:00',
-        'endTime': '18:00',
-        'date': '30/10/2023',
-      },
-      {
-        'id': 707,
-        'sportName': 'Quyền Anh',
-        'location': 'Trung tâm quyền Anh J',
-        'startTime': '14:00',
-        'endTime': '16:00',
-        'date': '31/10/2023',
-      },
-      {
-        'id': 808,
-        'sportName': 'Karate',
-        'location': 'Trung tâm Karate K',
-        'startTime': '17:00',
-        'endTime': '19:00',
-        'date': '01/11/2023',
-      }
     ];
 
     return Scaffold(
@@ -190,7 +142,7 @@ class RoomListScreen extends StatelessWidget {
             child: ListTile(
               onTap: () {
                 // navigate to /lobby
-                Navigator.pushNamed(context, '/lobby');
+                Navigator.pushNamed(context, '/lobby_manual');
               },
               leading: Text(
                 '#${room['id']}',

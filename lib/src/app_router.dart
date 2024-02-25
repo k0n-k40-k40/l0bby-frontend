@@ -6,6 +6,8 @@ import 'screens/auth.dart';
 import 'screens/room_details.dart';
 import 'screens/home.dart';
 import 'screens/user_profile.dart';
+import 'screens/lobby.dart';
+import 'screens/finding_match.dart';
 
 class AppRouter {
   static Route<dynamic>? generateRoute(RouteSettings settings) {
@@ -20,6 +22,10 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const AutoMatchScreen());
       case '/profile':
         return MaterialPageRoute(builder: (_) => const ProfilePage());
+      case '/lobby':
+        return MaterialPageRoute(builder: (_) => const LobbyPage());
+      case '/finding':
+        return MaterialPageRoute(builder: (_) => const FindingMatchPage());
       // Add more static routes here
     }
 

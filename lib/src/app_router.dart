@@ -10,6 +10,7 @@ import 'screens/home.dart';
 import 'screens/user_profile.dart';
 import 'screens/lobby.dart';
 import 'screens/finding_match.dart';
+import 'screens/matched.dart';
 
 class AppRouter {
   static Route<dynamic>? generateRoute(RouteSettings settings) {
@@ -30,6 +31,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const LobbyPage());
       case '/finding':
         return MaterialPageRoute(builder: (_) => const FindingMatchScreen());
+      case '/matched':
+        return MaterialPageRoute(builder: (_) => const MatchedPage());
       // Add more static routes here
     }
 

@@ -90,51 +90,47 @@ class CallButton extends StatelessWidget {
   }
 
 }
-
 class BookingPage extends StatelessWidget {
-
   final String backgroundFileName;
   final CourtInfo courtInfo;
 
   const BookingPage({
-    super.key,
+    Key? key,
     required this.backgroundFileName,
-    required this.courtInfo
-  });
+    required this.courtInfo,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Stack(
-          fit: StackFit.expand,
-          children: [
-            // Background image
-            Image.asset(
-              backgroundFileName,
-
-              fit: BoxFit.cover,
-            ),
-            Expanded(
-              child: Container(
-                color: Colors.black.withOpacity(0.5),
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          // Background image
+          Image.asset(
+            backgroundFileName,
+            fit: BoxFit.cover,
+          ),
+          Container(
+            color: Colors.black.withOpacity(0.5),
+          ),
+          // Content on top of the background image goes from here down
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: CallButton(phoneNumber: courtInfo.phoneNumber),
               ),
-            ),
-            // Content on top of the background image goes from here down
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Padding(padding: EdgeInsets.all(20), child:
-                  CallButton(phoneNumber: courtInfo.phoneNumber),
-                ),
-                Expanded(child: Container()),
-                Padding(padding: EdgeInsets.only(left: 20, bottom:  20),
-                  child: courtInfo,
-                )
-              ],
-            ),
-          ],
-      )
+
+              Padding(
+                padding: const EdgeInsets.only(left: 20, bottom: 20),
+                child: courtInfo,
+              )
+            ],
+          ),
+        ],
+      ),
     );
   }
-
 }

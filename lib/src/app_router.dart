@@ -25,7 +25,7 @@ class AppRouter {
       case '/lobby':
         return MaterialPageRoute(builder: (_) => const LobbyPage());
       case '/finding':
-        return MaterialPageRoute(builder: (_) => const FindingMatchPage());
+        return MaterialPageRoute(builder: (_) => const FindingMatchScreen());
       // Add more static routes here
     }
 

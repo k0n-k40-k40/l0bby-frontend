@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter/services.dart';
 
 class LobbyPage extends StatefulWidget {
   const LobbyPage({super.key});
@@ -35,6 +36,7 @@ class _LobbyPageState extends State<LobbyPage> {
   String time = "10:00 AM - 12:00 PM";
   String date = "01/01/2024";
 
+  String roomCode = "242271012badminton";
   @override
   void initState() {
     super.initState();
@@ -64,6 +66,7 @@ class _LobbyPageState extends State<LobbyPage> {
         child: Column(
           children: [
             // Your content here
+            RoomCode(roomCode: roomCode),
             _buildLobbyInfoSection(),
             _buildFriendsSection(context),
             _buildMembersSection(),
@@ -78,34 +81,38 @@ class _LobbyPageState extends State<LobbyPage> {
           ],
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ElevatedButton(
-          onPressed: allReady
-              ? () {
-                  // Action for starting the match
-                  Fluttertoast.showToast(
-                    msg: 'Starting Match...',
-                    toastLength: Toast.LENGTH_SHORT,
-                    gravity: ToastGravity.BOTTOM,
-                  );
-                  // Navigate to the finding match page or start the matching process
-                }
-              : null,
-          child: Text(
-            "Start Matching",
-            style: TextStyle(
-                color: allReady ? Colors.white : Colors.grey,
-                fontSize:
-                    18.0), // Set font color to white if everyone is ready, otherwise set it to grey
-          ),
-          style: ElevatedButton.styleFrom(
-            backgroundColor:
-                allReady ? const Color(0xFF9B40BF) : const Color(0xFF333333),
-            minimumSize:
-                const Size(double.infinity, 60), // Make button wider and taller
-            elevation: 8, // Add elevation for floating effect
-            shadowColor: Colors.black.withOpacity(0.4), // Set shadow color
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.transparent,
+        elevation: 0,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ElevatedButton(
+            onPressed: allReady
+                ? () {
+                    // Action for starting the match
+                    Fluttertoast.showToast(
+                      msg: 'Starting Match...',
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.BOTTOM,
+                    );
+                    // Navigate to the finding match page or start the matching process
+                  }
+                : null,
+            child: Text(
+              "Tìm trận đấu",
+              style: TextStyle(
+                  color: allReady ? Colors.white : Colors.grey,
+                  fontSize:
+                      18.0), // Set font color to white if everyone is ready, otherwise set it to grey
+            ),
+            style: ElevatedButton.styleFrom(
+              backgroundColor:
+                  allReady ? const Color(0xFF9B40BF) : const Color(0xFF333333),
+              minimumSize: const Size(
+                  double.infinity, 80), // Make button wider and taller
+              elevation: 8, // Add elevation for floating effect
+              shadowColor: Colors.black.withOpacity(0.4), // Set shadow color
+            ),
           ),
         ),
       ),
@@ -432,7 +439,7 @@ class _LobbyPageState extends State<LobbyPage> {
                 ? const Icon(Icons.check_circle, color: Colors.green)
                 : const Icon(Icons.cancel, color: Colors.red),
           );
-        }).toList(),
+        }),
         // Display empty slots if needed.
         for (var i = 0; i < emptySlots; i++)
           ListTile(
@@ -446,6 +453,59 @@ class _LobbyPageState extends State<LobbyPage> {
             ),
           ),
       ],
+    );
+  }
+}
+
+class RoomCode extends StatelessWidget {
+  const RoomCode({
+    super.key,
+    required this.roomCode,
+  });
+
+  final String roomCode;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Row(
+        children: [
+          Expanded(
+            child: RichText(
+              text: TextSpan(
+                style: const TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
+                children: [
+                  const TextSpan(
+                    text: "Room Code: ",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  TextSpan(
+                    text: roomCode,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.copy, color: Colors.white),
+            onPressed: () {
+              Clipboard.setData(ClipboardData(text: roomCode)).then((_) {
+                Fluttertoast.showToast(
+                  msg: "Room code copied to clipboard",
+                  toastLength: Toast.LENGTH_SHORT,
+                  gravity: ToastGravity.CENTER,
+                );
+              });
+            },
+          ),
+        ],
+      ),
     );
   }
 }

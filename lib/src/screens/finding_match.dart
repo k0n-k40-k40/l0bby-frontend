@@ -13,7 +13,7 @@ class _FindingMatchScreenState extends State<FindingMatchScreen> {
     super.initState();
     Future.delayed(const Duration(seconds: 5), () {
       if (mounted) {
-        Navigator.pushReplacementNamed(context, '/lobby');
+        Navigator.pushReplacementNamed(context, '/matched');
       }
     });
   }

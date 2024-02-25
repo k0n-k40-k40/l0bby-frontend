@@ -33,7 +33,7 @@ class LoginScreen extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   // Navigate to the home screen
-                  Navigator.pushNamed(context, '/');
+                  Navigator.pushNamed(context, '/profile');
                 },
                 child: const Text('Login'),
               ),

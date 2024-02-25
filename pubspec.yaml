@@ -26,3 +26,20 @@ flutter:
     - lib/assets/
     - lib/assets/images/
     - lib/assets/courts/
+  fonts:
+    - family: BACKTO1982
+      fonts:
+        - asset: lib/fonts/BACKTO1982.ttf
+          weight: 700
+    - family: INVASION2000
+      fonts:
+        - asset: lib/fonts/INVASION2000.ttf
+          weight: 700
+    - family: Karma Suture
+      fonts:
+        - asset: lib/fonts/Karma Suture.otf
+          weight: 700
+    - family: gomarice_goma_block
+      fonts:
+        - asset: lib/fonts/gomarice_goma_block.ttf
+          weight: 700

@@ -18,17 +18,23 @@ class TonalButton extends StatelessWidget {
       padding: const EdgeInsets.all(4.0),
       child: ConstrainedBox(
         constraints: const BoxConstraints(
-          minWidth: 200
+          minWidth: 220,
+          minHeight: 40
         ),
         child: ElevatedButton(
           onPressed: onPressed,
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color>(backgroundColor),
           ),
-          child: 
+          child:
             Text(
               text,
-              style: TextStyle(color: Colors.black.withOpacity(1.0)),
+              style: TextStyle(
+                color: Colors.black.withOpacity(0.7),
+                fontFamily: 'gomarice_goma_block',
+                fontWeight: FontWeight.w100,
+                fontSize: 20
+              ),
             ),
         )
       )

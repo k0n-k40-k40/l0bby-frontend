@@ -19,7 +19,7 @@ class CustomNavigationBar extends StatelessWidget {
         routeName = '/automatic';
         break;
       case 2:
-        routeName = '/manual';
+        routeName = '/manual/room_list';
         break;
       case 3:
         routeName = '/profile';

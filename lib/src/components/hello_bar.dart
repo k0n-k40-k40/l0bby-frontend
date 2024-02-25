@@ -26,10 +26,10 @@ class HelloBar extends StatelessWidget {
       child: Container(
         decoration: myBoxDecoration(),
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(0),
           child: Text(
             "l0bby",
-            style: TextStyle(fontSize: textSize, fontWeight: FontWeight.bold),
+            style: TextStyle(fontFamily: 'INVASION2000', fontSize: textSize * 2, fontWeight: FontWeight.bold, color: Colors.black),
             textAlign: TextAlign.center,
           ),
         ),
@@ -37,4 +37,3 @@ class HelloBar extends StatelessWidget {
     );
   }
 }
-

@@ -27,36 +27,29 @@ class AllModeButtons extends StatelessWidget {
     return Center(
       child: Container(
         width: screenWidth,
-        height: screenHeight * 0.3,
+        height: screenHeight * 0.25,
         decoration: myBoxDecoration(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TonalButton(
-              text: "Automatic!", 
-              backgroundColor: Colors.lightBlueAccent, 
+              text: "Automatic!",
+              backgroundColor: Colors.lightBlueAccent,
               onPressed: () {
                 Navigator.pushNamed(context, '/automatic');
               },
             ),
             TonalButton(
-              text: "Manual!", 
-              backgroundColor: const Color.fromRGBO(64, 196, 255, 1), 
+              text: "Manual!",
+              backgroundColor: const Color.fromRGBO(64, 196, 255, 1),
               onPressed: () {
                 Navigator.pushNamed(context, '/manual');
 
               },
             ),
             TonalButton(
-              text: "Create Room!", 
-              backgroundColor: Colors.lightBlueAccent, 
-              onPressed: () {
-
-              },
-            ),
-            TonalButton(
-              text: "Go to auth page!", 
-              backgroundColor: Colors.lightBlueAccent, 
+              text: "Go to auth page!",
+              backgroundColor: Colors.lightBlueAccent,
               onPressed: () {
                 Navigator.pushNamed(context, '/auth');
               },

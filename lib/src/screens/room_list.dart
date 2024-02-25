@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import '../components/navigation_bar.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class RoomListScreen extends StatelessWidget {
   const RoomListScreen({super.key});
@@ -29,13 +28,6 @@ class RoomListScreen extends StatelessWidget {
             TextButton(
               child: const Text('Join'),
               onPressed: () {
-                // Here, you would usually validate the code and navigate to the room
-                // For demonstration purposes, just printing to console and closing the dialog
-                // Fluttertoast.showToast(
-                //   msg: 'Joining room...',
-                //   toastLength: Toast.LENGTH_SHORT,
-                //   gravity: ToastGravity.BOTTOM,
-                // );
                 Navigator.pushNamed(context, '/lobby');
               },
             ),
